@@ -1,6 +1,14 @@
 <html>
-    <form>
+    <% if flash["message"] != "" && flash["message"] != nil %>
+        <div style="color:red"><%=flash["message"] %></div>
+    <% end %>
+    <% if session[:name] != "" && session[:name] != nil %>
+        <div style="color:green">Hello <%=session[:name] %> </div>
+
+    <% end %>
+    <form method="POST" action="/hello">
         <input type="text" name="name">
+        <input type="text" name="lastname">
         <input type="submit" value='Click me'>
     </form>
 </html>
